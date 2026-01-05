@@ -400,11 +400,11 @@
         .stat-label { font-size: 10px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
         
         /* Dashboards */
-        .dashboards-section { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 28px; }
+        .dashboards-section { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 28px; }
         
         .dashboard-card {
-            border-radius: 22px;
-            padding: 32px;
+            border-radius: 20px;
+            padding: 28px;
             cursor: pointer;
             transition: all 0.4s ease;
             text-decoration: none;
@@ -423,6 +423,11 @@
             border: 1px solid rgba(168,85,247,0.15);
         }
         
+        .dashboard-card.gamification {
+            background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(245,158,11,0.05));
+            border: 1px solid rgba(16,185,129,0.15);
+        }
+        
         .dashboard-card::before {
             content: '';
             position: absolute;
@@ -434,50 +439,71 @@
         
         .dashboard-card.clinical::before { background: linear-gradient(90deg, var(--cyan), var(--blue)); }
         .dashboard-card.population::before { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+        .dashboard-card.gamification::before { background: linear-gradient(90deg, var(--emerald), var(--amber)); }
         
         .dashboard-card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            transform: translateY(-6px); 
+            box-shadow: 0 24px 60px rgba(0,0,0,0.3);
         }
         
         .dashboard-card.clinical:hover { 
             border-color: var(--cyan);
-            box-shadow: 0 30px 80px rgba(34,211,238,0.15);
+            box-shadow: 0 24px 60px rgba(34,211,238,0.12);
         }
         
         .dashboard-card.population:hover { 
             border-color: var(--purple);
-            box-shadow: 0 30px 80px rgba(168,85,247,0.15);
+            box-shadow: 0 24px 60px rgba(168,85,247,0.12);
         }
         
-        .dashboard-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-        .dashboard-icon { font-size: 40px; }
-        .dashboard-badge { padding: 5px 12px; border-radius: 8px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .dashboard-card.gamification:hover { 
+            border-color: var(--emerald);
+            box-shadow: 0 24px 60px rgba(16,185,129,0.12);
+        }
+        
+        .dashboard-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+        .dashboard-icon { font-size: 36px; }
+        .dashboard-badge { padding: 5px 12px; border-radius: 8px; font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         .dashboard-card.clinical .dashboard-badge { background: rgba(34,211,238,0.15); color: var(--cyan); }
         .dashboard-card.population .dashboard-badge { background: rgba(168,85,247,0.15); color: var(--purple); }
+        .dashboard-card.gamification .dashboard-badge { background: rgba(16,185,129,0.15); color: var(--emerald); }
         
-        .dashboard-title { font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 10px; }
-        .dashboard-desc { font-size: 13px; color: #94a3b8; line-height: 1.7; }
+        .dashboard-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -0.3px; }
+        .dashboard-desc { font-size: 12px; color: #94a3b8; line-height: 1.6; }
         
         .dashboard-arrow { 
             position: absolute; 
-            right: 28px; 
-            bottom: 28px; 
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
+            right: 24px; 
+            bottom: 24px; 
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px; 
+            font-size: 16px; 
             opacity: 0; 
             transition: all 0.3s;
         }
         
         .dashboard-card.clinical .dashboard-arrow { background: rgba(34,211,238,0.1); color: var(--cyan); }
         .dashboard-card.population .dashboard-arrow { background: rgba(168,85,247,0.1); color: var(--purple); }
+        .dashboard-card.gamification .dashboard-arrow { background: rgba(16,185,129,0.1); color: var(--emerald); }
         
-        .dashboard-card:hover .dashboard-arrow { opacity: 1; transform: translateX(5px); }
+        .dashboard-card:hover .dashboard-arrow { opacity: 1; transform: translateX(4px); }
+        
+        .dashboard-partner { 
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding: 6px 12px;
+            background: rgba(245,158,11,0.1);
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--amber);
+        }
         
         /* Pipeline */
         .pipeline-section {
@@ -558,7 +584,7 @@
         </div>
         <div class="nav-actions">
             <a href="#" class="nav-btn active">Home</a>
-            <a href="#" class="nav-btn" onclick="openClinical()">Clinical</a>
+            <a href="https://waseemh115.github.io/Burak-poc/" class="nav-btn" onclick="openClinical()">Clinical</a>
             <a href="Population.html" class="nav-btn">Population</a>
         </div>
     </nav>
@@ -624,16 +650,23 @@
         </div>
         
         <div class="dashboards-section">
-            <a href="#" class="dashboard-card clinical" onclick="openclinical()"; return false;">
+            <a href="https://waseemh115.github.io/Burak-poc/" class="dashboard-card clinical" onclick="openClinical(); return false;">
                 <div class="dashboard-header"><span class="dashboard-icon">🔬</span><span class="dashboard-badge">Pipeline 2</span></div>
                 <div class="dashboard-title">Clinical Analysis</div>
-                <div class="dashboard-desc">Individual patient deep-dive with 7-layer mechanistic analysis and disease risk scoring.</div>
+                <div class="dashboard-desc">Individual patient deep-dive with 7-layer mechanistic analysis.</div>
                 <span class="dashboard-arrow">→</span>
             </a>
             <a href="Population.html" class="dashboard-card population">
                 <div class="dashboard-header"><span class="dashboard-icon">📊</span><span class="dashboard-badge">Pipeline 3</span></div>
                 <div class="dashboard-title">Population Health</div>
-                <div class="dashboard-desc">Aggregate cohort analytics, risk stratification, and intervention tracking.</div>
+                <div class="dashboard-desc">Aggregate cohort analytics and risk stratification.</div>
+                <span class="dashboard-arrow">→</span>
+            </a>
+            <a href="https://waseemh115.github.io/BurakMob/" class="dashboard-card gamification">
+                <div class="dashboard-header"><span class="dashboard-icon">🎮</span><span class="dashboard-badge">Engagement</span></div>
+                <div class="dashboard-title">Real Sugar Check</div>
+                <div class="dashboard-desc">T2D gamification for patient awareness and education.</div>
+                <div class="dashboard-partner">🏥 Al Mohafiz</div>
                 <span class="dashboard-arrow">→</span>
             </a>
         </div>
@@ -675,7 +708,7 @@
             }, 120);
         }
         function openPopulation() { window.location.href = 'Population.html'; }
-        function openClinical() { window.location.href = 'https://waseemh115.github.io/Burak-poc/'; }
+        function openClinical() { window.location.href = 'Population.html';  }
     </script>
 </body>
 </html>
